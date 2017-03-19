@@ -1,0 +1,7 @@
+<div ng-if="nid.foundEmpty()">Nothing found</div>
+<ul>
+	<li ng-repeat="item in nid.found">
+    	{{ item.name +" -"}} {{ item.short_name + " - " }} {{item.description }}
+    	<button ng-click="nid.onRemove({index: $index});" class="btn btn-primary">Don't want this one!</button>
+    </li>
+</ul>

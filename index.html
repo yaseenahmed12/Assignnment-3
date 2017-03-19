@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+<body ng-app="NarrowItDownApp">
+  <div class="container" ng-controller="NarrowItDownController as vm">
+    <h1>Narrow Down Your Chinese Menu Choice</h1>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form form-inline">
+          <div class="form-group">
+            <input type="text" autofocus placeholder="search item" class="form-control" ng-model="vm.searchStr">
+            <button class="btn btn-primary narrow-button" ng-click="vm.search()">Narrow It Down For Me!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert alert-warning" ng-if="vm.errorMessage">{{vm.errorMessage}}</div>
+      </div>
+    </div>
+
+    <br>
+
+    <found-items found-items="vm.found" on-remove="vm.removeFromList(itemIndex)"></found-items>
+  </div>
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
